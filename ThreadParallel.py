@@ -11,7 +11,6 @@ IDFDir = 'ExampleFiles'
 sys.path.insert(0, str(ProductsDir))
 from pyenergyplus.api import EnergyPlusAPI
 
-
 def thread_function(_working_dir: str):
     print(f"Thread: Running at working dir: {_working_dir}")
     if path.exists(_working_dir):
@@ -19,7 +18,7 @@ def thread_function(_working_dir: str):
     makedirs(_working_dir)
     api = EnergyPlusAPI()
     state = api.state_manager.new_state()
-    e_args='-d',_working_dir,'-a', '-w','USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw', '5ZoneAirCooled.idf'
+    e_args='-d',_working_dir,'-w','USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw', '5ZoneAirCooled.idf'
     api.runtime.run_energyplus(state, e_args)
 
 
