@@ -24,16 +24,7 @@ if __name__ == '__main__':
     freeze_support()
     path_to_idf = '5ZoneAirCooled.idf'
     weather_file_to_use = 'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw'
-    '''No threads. ✅
-    state = a.state_manager.new_state()
-    # temp_run_dir = os.path.join(os.getcwd(), 'temp_run_dir')
-    ret1 = a.runtime.run_energyplus(state, ['-d', temp_run_dir, '-w', weather_file_to_use, path_to_idf])
-    a.state_manager.reset_state(state)
-    ret2 = a.runtime.run_energyplus(state, ['-d', temp_run_dir, '-w', weather_file_to_use, path_to_idf])
-    sys.exit(ret1 + ret2)
-    '''
     info('parent process')
-    '''With threads. ❌'''
     for run_in_dir in ['series_run1', 'series_run2']:
         # clean out an existing run directory and remake it, moving into that directory as needed
         #project absolute path
