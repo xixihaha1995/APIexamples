@@ -1,5 +1,5 @@
 pyenergyplus/
-run1/
-run2/
-temp/
-temp_run_dir/
+series_run1/
+series_run2/
+parallel_run1/
+parallel_run2/
