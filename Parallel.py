@@ -5,15 +5,15 @@ import sys
 import shutil
 import threading
 from threading import Thread
-folder_with_pyenergyplus = 'C:/EnergyPlusV22-1-0'
-sys.path.insert(0, folder_with_pyenergyplus)
+folder_with_pyenergyplus = '/usr/local/EnergyPlus-22-2-0'
+sys.path.insert(0, str(folder_with_pyenergyplus))
 from pyenergyplus.api import EnergyPlusAPI
 
 def child_function(tmp_run_dir, weather_file, idf_to_run):
     api_instance = EnergyPlusAPI()
     state = api_instance.state_manager.new_state()
     print("state", state)
-    api_instance.runtime.run_energyplus(state, ['-d', tmp_run_dir,'-a','-w', weather_file, idf_to_run])
+    api_instance.runtime.run_energyplus(state, ['-d', tmp_run_dir,'-w', weather_file, idf_to_run])
 
 if __name__ == '__main__':
     # freeze_support()
